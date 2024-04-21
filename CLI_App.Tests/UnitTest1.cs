@@ -1,9 +1,4 @@
-using System;
-using Xunit;
-using Spreetail_Take_Home;
-using System.IO;
 using Spreetail_Take_Home.Core;
-using Newtonsoft.Json.Linq;
 
 namespace Spreetail_Take_Home.Tests
 {
