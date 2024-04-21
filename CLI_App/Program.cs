@@ -1,9 +1,9 @@
 ﻿using System;
-using Spreetail_CLI_Work_Sample.Data;
-using Spreetail_CLI_Work_Sample.Core;
+using Spreetail_Take_Home.Data;
+using Spreetail_Take_Home.Core;
 using System.ComponentModel.Design;
 
-namespace Spreetail_CLI_Work_Sample
+namespace Spreetail_Take_Home
 {
     class Program
     {

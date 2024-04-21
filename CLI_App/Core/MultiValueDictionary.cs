@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Spreetail_CLI_Work_Sample.Data;
+using Spreetail_Take_Home.Data;
 
-namespace Spreetail_CLI_Work_Sample.Core
+namespace Spreetail_Take_Home.Core
 {
     public class MultiValueDictionary
     {
@@ -30,12 +30,12 @@ namespace Spreetail_CLI_Work_Sample.Core
             }
         }
 
-        public void GetMembers(string key)
+        public List<string> GetMembers(string key)
         {
             if (!_dictionary.ContainsKey(key) || _dictionary[key].Count < 1)
             {
                 Console.WriteLine(") ERROR, key does not exist");
-                return;
+                return new List<string>();
             }
 
             List<string> members = new List<string>(_dictionary[key]);
@@ -45,6 +45,8 @@ namespace Spreetail_CLI_Work_Sample.Core
                 Console.WriteLine("{0}) {1}", idx, member);
                 idx++;
             }
+
+            return members;
         }
 
         public void Add(string key, string value)

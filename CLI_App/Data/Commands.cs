@@ -1,6 +1,6 @@
 using System;
 
-namespace Spreetail_CLI_Work_Sample.Data
+namespace Spreetail_Take_Home.Data
 {
     public static class Commands
     {
