@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using Spreetail_Take_Home.Data;
 
@@ -100,21 +99,26 @@ namespace Spreetail_Take_Home.Core
 
         public string GetAllMembers()
         {
-            HashSet<string> combinedHashSet = new HashSet<string>(_dictionary.Values.SelectMany(hashSet => hashSet));
+            if (_dictionary.Count == 0) return Messages.EmptySetMessage;
+            var keys = _dictionary.Keys;
             StringBuilder result = new StringBuilder();
             int idx = 1;
-            foreach (string set in combinedHashSet)
+            foreach (string key in keys)
             {
-                result.AppendLine(Messages.CreateNumberedListMessage(idx, set));
-                idx++;
+                foreach (string member in _dictionary[key])
+                {
+                    result.AppendLine(Messages.CreateNumberedListMessage(idx, member));
+                    idx++;
+                }
             }
+
             return result.ToString().TrimEnd();
+
         }
 
         public string GetItems()
         {
             if (_dictionary.Count == 0) return Messages.EmptySetMessage;
-            
             var keys = _dictionary.Keys;
             StringBuilder result = new StringBuilder();
             foreach (string key in keys)
