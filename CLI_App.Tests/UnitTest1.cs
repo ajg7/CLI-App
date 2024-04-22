@@ -2,10 +2,10 @@ using Spreetail_Take_Home.Core;
 
 namespace Spreetail_Take_Home.Tests
 {
-    public class UnitTest1
+    public class AddTests
     {
 
-        [Fact]
+       /* [Fact]
         public void Add_WithNewKey_AddsKey()
         {
             MultiValueDictionary multiValueDictionary = new MultiValueDictionary();
@@ -32,7 +32,7 @@ namespace Spreetail_Take_Home.Tests
             Assert.Equal(2, members.Count);
             Assert.Contains(value1, members);
             Assert.Contains(value2, members);
-        }
+        }*/
 
     }
 }

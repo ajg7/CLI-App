@@ -18,69 +18,39 @@ namespace Spreetail_Take_Home
                 Console.Write("> ");
                 string input = Console.ReadLine() ?? string.Empty;
                 if (string.IsNullOrEmpty(input)) continue;
-                string command = input.Split(" ")[0]; // First part of the input string
-                string arguments = input.Substring(command.Length).Trim(); // The rest of the input string
-                string[] tokens = arguments.Split(" ");
-
-                switch (command)
+                InputParser parser = new InputParser(input);
+               switch (parser.Command)
                 {
                     case Commands.ADD:
-                        if (tokens.Length >= 2)
-                        {
-                            string key = tokens[0];
-                            string value = tokens[1];
-                            multiValueDictionary.Add(key, value);
-                        }
+                        Console.WriteLine(multiValueDictionary.Add(parser.Key, parser.Member));
                         break;
                     case Commands.KEYS:
-                        multiValueDictionary.GetKeys();
+                        Console.WriteLine(multiValueDictionary.GetKeys());
                         break;
                     case Commands.MEMBERS:
-                        if (tokens.Length >= 1)
-                        {
-                            string key = tokens[0];
-                            multiValueDictionary.GetMembers(key);
-                        }
+                        Console.WriteLine(multiValueDictionary.GetMembers(parser.Key));
                         break;
                     case Commands.REMOVE:
-                        if (tokens.Length >= 2)
-                        {
-                            string key = tokens[0];
-                            string value = tokens[1];
-                            multiValueDictionary.Remove(key, value);
-                        }
+                        Console.WriteLine(multiValueDictionary.Remove(parser.Key, parser.Member));
                         break;
-                    case Commands.REMOVEALL:
-                        if (tokens.Length >= 1)
-                        {
-                            string key = tokens[0];
-                            multiValueDictionary.RemoveAll(key);
-                        }
-                        break;
-                    case Commands.CLEAR:
-                        multiValueDictionary.Clear();
-                        break;
-                    case Commands.KEYEXISTS:
-                        if (tokens.Length >= 1)
-                        {
-                            string key = tokens[0];
-                            multiValueDictionary.KeyExists(key);
-                        }
-                        break;
-                    case Commands.MEMBEREXISTS:
-                        if (tokens.Length >= 2)
-                        {
-                            string key = tokens[0];
-                            string value = tokens[1];
-                            multiValueDictionary.MemberExists(key, value);
-                        }
-                        break;
-                    case Commands.ALLMEMBERS:
-                        multiValueDictionary.GetAllMembers();
-                        break;
-                    case Commands.ITEMS:
-                        multiValueDictionary.GetItems();
-                        break;
+                     case Commands.REMOVEALL:
+                         Console.WriteLine(multiValueDictionary.RemoveAll(parser.Key));
+                         break;
+                     case Commands.CLEAR:
+                         Console.WriteLine(multiValueDictionary.Clear());
+                         break;
+                     case Commands.KEYEXISTS:
+                         Console.WriteLine(multiValueDictionary.KeyExists(parser.Key));
+                         break;
+                     case Commands.MEMBEREXISTS:
+                         Console.WriteLine(multiValueDictionary.MemberExists(parser.Key, parser.Member));
+                         break;
+                     case Commands.ALLMEMBERS:
+                         Console.WriteLine(multiValueDictionary.GetAllMembers());
+                         break;
+                     case Commands.ITEMS:
+                         Console.WriteLine(multiValueDictionary.GetItems());
+                         break;
                     default:
                         Console.WriteLine("No command found");
                         break;

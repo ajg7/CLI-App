@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using Spreetail_Take_Home.Data;
 
 namespace Spreetail_Take_Home.Core
@@ -8,145 +9,144 @@ namespace Spreetail_Take_Home.Core
     public class MultiValueDictionary
     {
         private readonly Dictionary<string, HashSet<string>> _dictionary;
+        
 
         public MultiValueDictionary()
         {
             _dictionary = new Dictionary<string, HashSet<string>>();
         }
 
-        public void GetKeys()
+        public string GetKeys()
         {
             if (_dictionary.Count == 0)
             {
-                Console.WriteLine("> (empty set)");
-                return;
+                return Messages.EmptySetMessage;
             }
-            List<string> keys = new List<string>(this._dictionary.Keys);
+
+            StringBuilder result = new StringBuilder();
             int idx = 1;
-            foreach (string key in keys)
+            foreach (string key in this._dictionary.Keys)
             {
-                Console.WriteLine("{0}) {1}", idx, key);
+                result.AppendLine(Messages.ConcatMessage(idx, key));
                 idx++;
             }
+
+            return result.ToString().TrimEnd();
         }
 
-        public List<string> GetMembers(string key)
+        public string GetMembers(string key)
         {
             if (!_dictionary.ContainsKey(key) || _dictionary[key].Count < 1)
             {
-                Console.WriteLine(") ERROR, key does not exist");
-                return new List<string>();
+                return Messages.KeyNotExistMessage;
+                
             }
 
             List<string> members = new List<string>(_dictionary[key]);
+            StringBuilder result = new StringBuilder();
             int idx = 1;
             foreach (string member in members)
             {
-                Console.WriteLine("{0}) {1}", idx, member);
+                result.AppendLine(Messages.ConcatMessage(idx, member));
                 idx++;
             }
-
-            return members;
+            return result.ToString().TrimEnd();
         }
 
-        public void Add(string key, string value)
-        {
-            if (!_dictionary.ContainsKey(key)) _dictionary[key] = new HashSet<string>();
-            if (_dictionary[key].Contains(value))
-            {
-                Console.WriteLine(") ERROR, member already exists for key");
-                return;
-            }
-            _dictionary[key].Add(value);
-            Console.WriteLine(") Added");
-        }
-
-        public void Remove(string key, string member)
+        public string Add(string key, string value)
         {
             if (!_dictionary.ContainsKey(key))
             {
-                Console.WriteLine(") ERROR, key does not exist");
-                return;
+                _dictionary[key] = new HashSet<string>();
+            }
+
+            if (_dictionary[key].Contains(value))
+            {
+                return Messages.MemberExistsMessage;
+            }
+            _dictionary[key].Add(value);
+            return Messages.AddedMessage;
+        }
+
+        public string Remove(string key, string member)
+        {
+            if (!_dictionary.ContainsKey(key))
+            {
+                return Messages.KeyNotExistMessage;
+                
             }
             if (!_dictionary[key].Contains(member))
             {
-                Console.WriteLine(") ERROR, member does not exist");
-                return;
+                return Messages.MemberNotExistMessage;
             }
             _dictionary[key].Remove(member);
-            Console.WriteLine(") Removed");
+            return Messages.RemovedMessage;
         }
 
-        public void RemoveAll(string key)
+        public string RemoveAll(string key)
         {
             if (_dictionary.Count == 0)
             {
-                Console.WriteLine("> (empty set)");
-                return;
+                return Messages.EmptySetMessage;
             }
             if (!_dictionary.ContainsKey(key))
             {
-                Console.WriteLine(") ERROR, key does not exist");
-                return;
+                return Messages.KeyNotExistMessage;
             }
             _dictionary[key].Clear();
-            Console.WriteLine(") Removed");
+            return Messages.RemovedMessage;
         }
 
-        public void Clear()
+        public string Clear()
         {
             if (_dictionary.Count == 0)
             {
-                Console.WriteLine(") (empty set)");
-                return;
+                return Messages.EmptySetMessage;
             }
             _dictionary.Clear();
-            Console.WriteLine(") Cleared");
+            return Messages.ClearedMessage;
         }
 
-        public void KeyExists(string key)
+        public bool KeyExists(string key)
         {
-            bool hasKey = _dictionary.ContainsKey(key);
-            Console.WriteLine(hasKey);
+            return _dictionary.ContainsKey(key);
         }
 
-        public void MemberExists(string key, string member)
+        public bool MemberExists(string key, string member)
         {
-            bool hasMember = false;
-            if (_dictionary.ContainsKey(key) && _dictionary[key].Contains(member))
-            {
-                hasMember = true;
-            }
-            Console.WriteLine(hasMember);
+            return _dictionary.ContainsKey(key) && _dictionary[key].Contains(member);
         }
 
-        public void GetAllMembers()
+        public string GetAllMembers()
         {
             HashSet<string> combinedHashSet = new HashSet<string>(_dictionary.Values.SelectMany(hashSet => hashSet));
+            StringBuilder result = new StringBuilder();
             int idx = 1;
             foreach (string set in combinedHashSet)
             {
-                Console.WriteLine("{0}) {1}", idx, set);
+                result.AppendLine(Messages.ConcatMessage(idx, set));
                 idx++;
             }
-
+            return result.ToString().TrimEnd();
         }
 
-        public void GetItems()
+        public string GetItems()
         {
             if (_dictionary.Count == 0)
             {
-                Console.WriteLine(") (empty set)");
-                return;
+                return Messages.EmptySetMessage;
             }
             var keys = _dictionary.Keys;
+            StringBuilder result = new StringBuilder();
             foreach (string key in keys)
             {
                 foreach (string member in _dictionary[key])
                 {
-                    Console.WriteLine("{0}: {1}", key, member);
+                    result.AppendLine(Messages.ConcatItemsMessage(key, member));
                 }
             }
+
+            return result.ToString().TrimEnd();
         }
     }
 
