@@ -14,5 +14,6 @@ namespace Spreetail_Take_Home.Data
         public const string MEMBEREXISTS = "MEMBEREXISTS";
         public const string ALLMEMBERS = "ALLMEMBERS";
         public const string ITEMS = "ITEMS";
+        public const string EXIT = "EXIT";
     }
 }
