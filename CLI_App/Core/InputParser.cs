@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Spreetail_Take_Home.Data;
@@ -15,8 +14,8 @@ namespace Spreetail_Take_Home.Core
 
         public InputParser(string input)
         {
-            if (string.IsNullOrEmpty(input)) throw new ArgumentNullException(Messages.NoInputProvidedMessage);
-            string[] tokens = input.Split(" ");
+            if (string.IsNullOrEmpty(input) || string.IsNullOrWhiteSpace(input)) throw new ArgumentNullException(Messages.NoInputProvidedMessage);
+            string[] tokens = input.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
             Command = tokens[0];
             if (tokens.Length > 1) Key = tokens[1];
             if (tokens.Length > 2) Member = tokens[2];

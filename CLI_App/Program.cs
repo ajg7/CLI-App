@@ -16,7 +16,7 @@ namespace Spreetail_Take_Home
             {
                 Console.Write("> ");
                 string input = Console.ReadLine() ?? string.Empty;
-                if (string.IsNullOrEmpty(input)) continue;
+                if (string.IsNullOrEmpty(input) || string.IsNullOrWhiteSpace(input)) continue;
                 InputParser parser = new InputParser(input);
                 switch (parser.Command)
                  {
