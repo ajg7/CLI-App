@@ -36,10 +36,15 @@ namespace Spreetail_Take_Home.Core
 
         public string GetMembers(string key)
         {
-            if (!_dictionary.ContainsKey(key) || _dictionary[key].Count < 1)
+            if (!_dictionary.ContainsKey(key))
             {
                 return Messages.KeyNotExistMessage;
                 
+            }
+
+            if (_dictionary[key].Count < 1)
+            {
+                return Messages.EmptySetMessage;
             }
 
             List<string> members = new List<string>(_dictionary[key]);
@@ -79,7 +84,14 @@ namespace Spreetail_Take_Home.Core
             {
                 return Messages.MemberNotExistMessage;
             }
-            _dictionary[key].Remove(member);
+
+            if (_dictionary[key].Count == 1)
+            {
+                _dictionary.Remove(key);
+            } else
+            {
+                _dictionary[key].Remove(member);
+            }
             return Messages.RemovedMessage;
         }
 
@@ -93,7 +105,7 @@ namespace Spreetail_Take_Home.Core
             {
                 return Messages.KeyNotExistMessage;
             }
-            _dictionary[key].Clear();
+            _dictionary.Remove(key);
             return Messages.RemovedMessage;
         }
 
