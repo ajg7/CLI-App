@@ -27,7 +27,7 @@ namespace Spreetail_Take_Home.Core
             int idx = 1;
             foreach (string key in this._dictionary.Keys)
             {
-                result.AppendLine(Messages.ConcatMessage(idx, key));
+                result.AppendLine(Messages.CreateNumberedListMessage(idx, key));
                 idx++;
             }
 
@@ -52,7 +52,7 @@ namespace Spreetail_Take_Home.Core
             int idx = 1;
             foreach (string member in members)
             {
-                result.AppendLine(Messages.ConcatMessage(idx, member));
+                result.AppendLine(Messages.CreateNumberedListMessage(idx, member));
                 idx++;
             }
             return result.ToString().TrimEnd();
@@ -136,7 +136,7 @@ namespace Spreetail_Take_Home.Core
             int idx = 1;
             foreach (string set in combinedHashSet)
             {
-                result.AppendLine(Messages.ConcatMessage(idx, set));
+                result.AppendLine(Messages.CreateNumberedListMessage(idx, set));
                 idx++;
             }
             return result.ToString().TrimEnd();
@@ -154,7 +154,7 @@ namespace Spreetail_Take_Home.Core
             {
                 foreach (string member in _dictionary[key])
                 {
-                    result.AppendLine(Messages.ConcatItemsMessage(key, member));
+                    result.AppendLine(Messages.CreateItemsMessage(key, member));
                 }
             }
 

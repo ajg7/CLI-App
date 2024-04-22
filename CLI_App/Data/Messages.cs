@@ -13,12 +13,12 @@ namespace Spreetail_Take_Home.Data
         public const string RemovedMessage = ") Removed";
         public const string ClearedMessage = ") Cleared";
 
-        public static string ConcatMessage(int idx, string item)
+        public static string CreateNumberedListMessage(int idx, string item)
         {
             return $"{idx}) {item}";
         }
 
-        public static string ConcatItemsMessage(string key, string member)
+        public static string CreateItemsMessage(string key, string member)
         {
             return $"{key}: {member}";
         }
