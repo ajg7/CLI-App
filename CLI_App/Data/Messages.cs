@@ -5,9 +5,11 @@ namespace Spreetail_Take_Home.Data
     public static class Messages
     {
         public const string EmptySetMessage = ") (empty set)";
-        public const string KeyNotExistMessage = ") ERROR, key does not exist";
-        public const string MemberNotExistMessage = ") ERROR, member does not exist";
+        public const string KeyDoesNotExistMessage = ") ERROR, key does not exist";
+        public const string MemberDoesNotExistMessage = ") ERROR, member does not exist";
         public const string MemberExistsMessage = ") ERROR, member already exists for key";
+        public const string NoKeyProvidedMessage = ") ERROR, no key was provided";
+        public const string NoMemberProvidedMessage = ") ERROR, no member was provided";
         public const string NoInputProvidedMessage = ") ERROR, no input was provided";
         public const string AddedMessage = ") Added";
         public const string RemovedMessage = ") Removed";
