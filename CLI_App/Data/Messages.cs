@@ -11,6 +11,7 @@ namespace Spreetail_Take_Home.Data
         public const string NoKeyProvidedMessage = ") ERROR, no key was provided";
         public const string NoMemberProvidedMessage = ") ERROR, no member was provided";
         public const string NoInputProvidedMessage = ") ERROR, no input was provided";
+        public const string NotValidCommandMessage = ") ERROR, not a valid command";
         public const string AddedMessage = ") Added";
         public const string RemovedMessage = ") Removed";
         public const string ClearedMessage = ") Cleared";

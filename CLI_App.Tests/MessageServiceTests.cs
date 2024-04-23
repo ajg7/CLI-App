@@ -86,6 +86,14 @@ namespace Spreetail_Take_Home.Tests
             Assert.Equal(expected, actual);
         }
 
+        [Fact]
+        public void GetNotValidCommandMessage_ReturnsCorrectMessage()
+        {
+            string expected = Messages.NotValidCommandMessage;
+            string actual = _messageService.GetNotValidCommandMessage();
+            Assert.Equal(expected, actual);
+        }
+
         [Theory]
         [InlineData(1, "Joker", "1) Joker")]
         [InlineData(2, "Penguin", "2) Penguin")]

@@ -32,7 +32,7 @@ namespace Spreetail_Take_Home.Tests
             string input = "ADD";
             InputParser parser = new InputParser(input);
 
-            Assert.Equal("ADD", parser.Command);
+            Assert.Equal(Commands.ADD, parser.Command);
             Assert.Null(parser.Key);
             Assert.Null(parser.Member);
         }
@@ -43,7 +43,7 @@ namespace Spreetail_Take_Home.Tests
             string input = "ADD Batman";
             InputParser parser = new InputParser(input);
 
-            Assert.Equal("ADD", parser.Command);
+            Assert.Equal(Commands.ADD, parser.Command);
             Assert.Equal("Batman", parser.Key);
             Assert.Null(parser.Member);
         }
@@ -54,7 +54,7 @@ namespace Spreetail_Take_Home.Tests
             string input = "ADD Batman Joker";
             InputParser parser = new InputParser(input);
 
-            Assert.Equal("ADD", parser.Command);
+            Assert.Equal(Commands.ADD, parser.Command);
             Assert.Equal("Batman", parser.Key);
             Assert.Equal("Joker", parser.Member);
         }
@@ -65,7 +65,7 @@ namespace Spreetail_Take_Home.Tests
             string input = "ADD Superman LexLuthor ToyMan Brianiac";
             InputParser parser = new InputParser(input);
 
-            Assert.Equal("ADD", parser.Command);
+            Assert.Equal(Commands.ADD, parser.Command);
             Assert.Equal("Superman", parser.Key);
             Assert.Equal("LexLuthor", parser.Member);
         }
@@ -76,10 +76,11 @@ namespace Spreetail_Take_Home.Tests
             string input = "      ADD   GreenLantern                      Sinestro   ";
             InputParser parser = new InputParser(input);
 
-            Assert.Equal("ADD", parser.Command);
+            Assert.Equal(Commands.ADD, parser.Command);
             Assert.Equal("GreenLantern", parser.Key);
             Assert.Equal("Sinestro", parser.Member);
         }
+
     }
 
 }

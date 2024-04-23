@@ -13,6 +13,7 @@ namespace Spreetail_Take_Home.Data.Interfaces
         string GetAddedMessage();
         string GetRemovedMessage();
         string GetClearedMessage();
+        string GetNotValidCommandMessage();
         string CreateNumberedListMessage(int idx, string item);
         string CreateItemsMessage(string key, string member);
     }

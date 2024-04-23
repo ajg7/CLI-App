@@ -56,7 +56,7 @@ namespace Spreetail_Take_Home
                          isRunning = false;
                          break;
                      default:
-                         Console.WriteLine("No command found");
+                         Console.WriteLine(messageService.GetNotValidCommandMessage());
                          break;
                  }
             }
