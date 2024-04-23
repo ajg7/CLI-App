@@ -1,7 +1,5 @@
 using Xunit;
 using Spreetail_Take_Home.Core;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace Spreetail_Take_Home.Tests
 {
