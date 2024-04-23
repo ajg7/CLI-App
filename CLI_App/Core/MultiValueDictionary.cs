@@ -17,32 +17,53 @@ namespace Spreetail_Take_Home.Core
             _messageService = messageService;
         }
 
-        public string GetKeys()
+        private string FormatNumberedList(IEnumerable<string> values) 
         {
-            if (_dictionary.Count == 0) return _messageService.GetEmptySetMessage();
             StringBuilder result = new StringBuilder();
             int idx = 1;
-            foreach (string key in _dictionary.Keys)
+            foreach (string value in values)
             {
-                result.AppendLine(_messageService.CreateNumberedListMessage(idx, key));
+                result.AppendLine(_messageService.CreateNumberedListMessage(idx, value));
                 idx++;
             }
             return result.ToString().TrimEnd();
         }
 
+        private string IterateDictionary(IEnumerable<string> keys, bool isCreateItemsList)
+        {
+            StringBuilder result = new StringBuilder();
+            int idx = 1;
+            foreach (string key in keys)
+            {
+                foreach (string member in _dictionary[key])
+                {
+                    if (isCreateItemsList)
+                    {
+                        result.AppendLine(_messageService.CreateItemsMessage(key, member));
+                    } else
+                    {
+                        result.AppendLine(_messageService.CreateNumberedListMessage(idx, member));
+                        idx++;
+                    }
+                    
+                }
+            }
+            return result.ToString().TrimEnd();
+
+        }
+
+        public string GetKeys()
+        {
+            if (_dictionary.Count == 0) return _messageService.GetEmptySetMessage();
+            return FormatNumberedList(_dictionary.Keys);
+        }
+
         public string GetMembers(string key)
         {
             if (!_dictionary.ContainsKey(key))  return _messageService.GetKeyDoesNotExistMessage();
-
             List<string> members = new List<string>(_dictionary[key]);
-            StringBuilder result = new StringBuilder();
-            int idx = 1;
-            foreach (string member in members)
-            {
-                result.AppendLine(_messageService.CreateNumberedListMessage(idx, member));
-                idx++;
-            }
-            return result.ToString().TrimEnd();
+            return FormatNumberedList(members);
+
         }
 
         public string Add(string key, string member)
@@ -104,32 +125,14 @@ namespace Spreetail_Take_Home.Core
         {
             if (_dictionary.Count == 0) return _messageService.GetEmptySetMessage();
             var keys = _dictionary.Keys;
-            StringBuilder result = new StringBuilder();
-            int idx = 1;
-            foreach (string key in keys)
-            {
-                foreach (string member in _dictionary[key])
-                {
-                    result.AppendLine(_messageService.CreateNumberedListMessage(idx, member));
-                    idx++;
-                }
-            }
-            return result.ToString().TrimEnd();
+            return IterateDictionary(keys, false);
         }
 
         public string GetItems()
         {
             if (_dictionary.Count == 0) return _messageService.GetEmptySetMessage();
             var keys = _dictionary.Keys;
-            StringBuilder result = new StringBuilder();
-            foreach (string key in keys)
-            {
-                foreach (string member in _dictionary[key])
-                {
-                    result.AppendLine(_messageService.CreateItemsMessage(key, member));
-                }
-            }
-            return result.ToString().TrimEnd();
+            return IterateDictionary(keys, true);
         }
     }
 
