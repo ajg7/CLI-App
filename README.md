@@ -4,19 +4,19 @@
 
 ## List of Commands
 
-| Command        | Parameters            | Example                     |
-|----------------|-----------------------|_____________________________|
-| ADD            | `<key> <value>`       | ADD Batman Joker            |
-| KEYS           | *No parameters*       | KEYS                        |
-| MEMBERS        | `<key>`               | MEMBERS Batman              |
-| REMOVE         | `<key> <value>`       | REMOVE Batman Joker         |
-| REMOVEALL      | `<key>`               | REMOVEALL Batman            |
-| CLEAR          | *No parameters*       | CLEAR                       |
-| KEYEXISTS      | `<key>`               | KEYEXISTS Batman            |
-| MEMBEREXISTS   | `<key> <value>`       | MEMBEREXISTS Batman Joker   |
-| ALLMEMBERS     | *No parameters*       | ALLMEMBERS                  |
-| ITEMS          | *No parameters*       | ITEMS                       |
-| EXIT           | *No parameters*       | EXIT                        |
+| Command       | Parameters          | Example                    |
+|---------------|---------------------|----------------------------|
+| ADD           | `<key> <value>`     | `ADD Batman Joker`         |
+| KEYS          | *No parameters*     | `KEYS`                     |
+| MEMBERS       | `<key>`             | `MEMBERS Batman`           |
+| REMOVE        | `<key> <value>`     | `REMOVE Batman Joker`      |
+| REMOVEALL     | `<key>`             | `REMOVEALL Batman`         |
+| CLEAR         | *No parameters*     | `CLEAR`                    |
+| KEYEXISTS     | `<key>`             | `KEYEXISTS Batman`         |
+| MEMBEREXISTS  | `<key> <value>`     | `MEMBEREXISTS Batman Joker`|
+| ALLMEMBERS    | *No parameters*     | `ALLMEMBERS`               |
+| ITEMS         | *No parameters*     | `ITEMS`                    |
+| EXIT          | *No parameters*     | `EXIT`                     |
 
 ## Constraints
 
