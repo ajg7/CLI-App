@@ -1,6 +1,6 @@
 using System;
 
-namespace Spreetail_Take_Home.Data
+namespace Spreetail_Take_Home.Data.Interfaces
 {
     public interface IMultiValueDictionary
     {

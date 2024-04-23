@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using Spreetail_Take_Home.Data;
+using Spreetail_Take_Home.Data.Interfaces;
 
 namespace Spreetail_Take_Home.Core
 {
-    public class InputParser
+    public class InputParser : IInputParser
     {
         public string Command { get; private set; }
         public string? Key { get; private set; }
