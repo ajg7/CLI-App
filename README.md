@@ -21,6 +21,9 @@
 
 ## Constraints
 
+* Commands are case-sensitive. They must be uppercase
+* Keys and Members must be one word. Ex: `ADD Batman Mr.Freeze` not `ADD Batman Mr. Freeze`
+
 ## How do you get the app running?
 
 ## How do you run the unit tests?
