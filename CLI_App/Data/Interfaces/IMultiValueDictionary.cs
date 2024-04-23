@@ -14,5 +14,6 @@ namespace Spreetail_Take_Home.Data.Interfaces
         string MemberExists(string key, string member);
         string GetAllMembers();
         string GetItems();
+        string ClearExcept(string key);
     }
 }

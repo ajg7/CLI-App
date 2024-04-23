@@ -231,5 +231,33 @@ namespace Spreetail_Take_Home.Tests
             var result = _dictionary.GetItems();
             Assert.Equal(_messageService.GetEmptySetMessage(), result);
         }
+
+        [Fact]
+        public void ClearExcept_WhenKeyIsNotProvided_ReturnsError()
+        {
+            var result = _dictionary.ClearExcept("");
+            Assert.Equal(_messageService.GetNoKeyProvidedMessage(), result);
+        }
+
+       [Fact]
+        public void ClearExcept_WhenKeyDoesNotExist_ReturnsError()
+        {
+            var result = _dictionary.ClearExcept("Batman");
+            Assert.Equal(_messageService.GetKeyDoesNotExistMessage(), result);
+        }
+
+        [Fact]
+        public void ClearExcept_WhenProvidedKey_CLEARSALLEXCEPTKEY()
+        {
+            _dictionary.Add("Batman", "Joker");
+            _dictionary.Add("SpiderMan", "Venom");
+            _dictionary.Add("Superman", "LexLuthor");
+            _dictionary.Add("GreenLantern", "Sinestro");
+            var result = _dictionary.ClearExcept("Superman");
+            Assert.Equal(_messageService.GetClearedExceptMessage("Superman"), result);
+
+            var otherResult = _dictionary.GetKeys();
+            Assert.Contains("1) Superman", otherResult);
+        }
     }
 }

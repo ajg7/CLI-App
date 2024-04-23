@@ -15,6 +15,7 @@ namespace Spreetail_Take_Home.Core
         public string GetAddedMessage() => Messages.AddedMessage;
         public string GetRemovedMessage() => Messages.RemovedMessage;
         public string GetClearedMessage() => Messages.ClearedMessage;
+        public string GetClearedExceptMessage(string key) => Messages.ClearedExceptMessage(key);
         public string GetNotValidCommandMessage() => Messages.NotValidCommandMessage;
         public string CreateNumberedListMessage(int idx, string item) => Messages.CreateNumberedListMessage(idx, item);
         public string CreateItemsMessage(string key, string member) => Messages.CreateItemsMessage(key, member);

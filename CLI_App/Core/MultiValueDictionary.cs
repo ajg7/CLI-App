@@ -135,6 +135,22 @@ namespace Spreetail_Take_Home.Core
             var keys = _dictionary.Keys;
             return IterateDictionary(keys, true);
         }
+
+        public string ClearExcept(string key)
+        {
+            if (string.IsNullOrEmpty(key)) return _messageService.GetNoKeyProvidedMessage();
+            if (!_dictionary.ContainsKey(key)) return _messageService.GetKeyDoesNotExistMessage();
+
+            foreach (var dictionaryKey in _dictionary.Keys)
+            {
+                if (dictionaryKey != key)
+                {
+                    _dictionary.Remove(dictionaryKey);
+                }
+            }
+
+            return _messageService.GetClearedExceptMessage(key);
+        }
     }
 
 }

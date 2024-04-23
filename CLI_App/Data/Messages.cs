@@ -16,6 +16,11 @@ namespace Spreetail_Take_Home.Data
         public const string RemovedMessage = ") Removed";
         public const string ClearedMessage = ") Cleared";
 
+        public static string ClearedExceptMessage(string key)
+        {
+            return $") Cleared all except {key}";
+        }
+
         public static string CreateNumberedListMessage(int idx, string item)
         {
             return $"{idx}) {item}";
