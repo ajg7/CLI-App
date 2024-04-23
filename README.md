@@ -21,6 +21,7 @@
 
 ## Constraints
 
+* Traditionally, the elements of a dictionary are called keys and values. In this app, the term 'members' is used to refer to what are typically known as values
 * Commands are case-sensitive. They must be uppercase
 * Keys and Members must be one word. Ex: `ADD Batman Mr.Freeze` not `ADD Batman Mr. Freeze`
 
