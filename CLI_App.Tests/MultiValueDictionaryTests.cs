@@ -107,6 +107,22 @@ namespace Spreetail_Take_Home.Tests
         }
 
         [Fact]
+        public void Remove_WhenKeyDoesNotExists_RemovesErrorMessage()
+        {
+            _dictionary.Add("Batman", "Joker");
+            var result = _dictionary.Remove("Superman", "LexLuthor");
+            Assert.Equal(_messageService.GetKeyDoesNotExistMessage(), result);
+        }
+
+        [Fact]
+        public void Remove_WhenMemberDoesNotExists_ReturnsErrorMessage()
+        {
+            _dictionary.Add("Batman", "Joker");
+            var result = _dictionary.Remove("Batman", "PoisonIvy");
+            Assert.Equal(_messageService.GetMemberDoesNotExistMessage(), result);
+        }
+
+        [Fact]
         public void RemoveAll_WhenKeyExists_RemovesAllMembers()
         {
             _dictionary.Add("Superman", "LexLuthor");
