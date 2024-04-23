@@ -6,14 +6,14 @@
 
 | Command       | Parameters          | Example                    |
 |---------------|---------------------|----------------------------|
-| ADD           | `<key> <value>`     | `ADD Batman Joker`         |
+| ADD           | `<key> <member>`    | `ADD Batman Joker`         |
 | KEYS          | *No parameters*     | `KEYS`                     |
 | MEMBERS       | `<key>`             | `MEMBERS Batman`           |
-| REMOVE        | `<key> <value>`     | `REMOVE Batman Joker`      |
+| REMOVE        | `<key> <member>`    | `REMOVE Batman Joker`      |
 | REMOVEALL     | `<key>`             | `REMOVEALL Batman`         |
 | CLEAR         | *No parameters*     | `CLEAR`                    |
 | KEYEXISTS     | `<key>`             | `KEYEXISTS Batman`         |
-| MEMBEREXISTS  | `<key> <value>`     | `MEMBEREXISTS Batman Joker`|
+| MEMBEREXISTS  | `<key> <member>`    | `MEMBEREXISTS Batman Joker`|
 | ALLMEMBERS    | *No parameters*     | `ALLMEMBERS`               |
 | ITEMS         | *No parameters*     | `ITEMS`                    |
 | EXIT          | *No parameters*     | `EXIT`                     |
