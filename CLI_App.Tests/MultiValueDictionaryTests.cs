@@ -35,6 +35,13 @@ namespace Spreetail_Take_Home.Tests
         }
 
         [Fact]
+        public void GetMembers_WhenKeyIsEmpty_ReturnsError()
+        {
+            var result = _dictionary.GetMembers("");
+            Assert.Equal(_messageService.GetNoKeyProvidedMessage(), result);
+        }
+
+        [Fact]
         public void GetMembers_WhenKeyIsNotPresent_ReturnsError()
         {
             _dictionary.Add("Batman", "PoisonIvy");

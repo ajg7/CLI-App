@@ -2,7 +2,7 @@
 
 ## What is the App?
 
-This a Command-Line Interface (CLI) app, where you can work with a Dictionary data structure. 
+This a Command-Line Interface (CLI) app, where you can work with a Dictionary data structure stored in memory. 
 This dictionary is a key/value store that takes a string for the key and a string for the member (value). The member is stored in a HashSet data structure.
 
 ## List of Commands

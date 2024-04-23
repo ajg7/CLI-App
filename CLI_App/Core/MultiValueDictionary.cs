@@ -60,6 +60,7 @@ namespace Spreetail_Take_Home.Core
 
         public string GetMembers(string key)
         {
+            if (string.IsNullOrEmpty(key)) return _messageService.GetNoKeyProvidedMessage();
             if (!_dictionary.ContainsKey(key))  return _messageService.GetKeyDoesNotExistMessage();
             List<string> members = new List<string>(_dictionary[key]);
             return FormatNumberedList(members);
