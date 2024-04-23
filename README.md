@@ -28,7 +28,7 @@ This dictionary is a key/value store that takes a string for the key and a strin
 * Commands are case-sensitive. They must be uppercase
 * Keys and Members must be one word. Ex: `ADD Batman Mr.Freeze` not `ADD Batman Mr. Freeze`
 
-## How do you get the app running?
+## How do you get the app & unit tests running?
 
 1. Ensure you have Visual Studio 2022 installed with the .NET SDK.
 2. Clone the repository.
