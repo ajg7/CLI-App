@@ -10,7 +10,8 @@ namespace Spreetail_Take_Home
         static void Main(string[] args)
         {
             bool isRunning = true;
-            MultiValueDictionary multiValueDictionary = new MultiValueDictionary();
+            IMessageService messageService = new MessageService();
+            IMultiValueDictionary multiValueDictionary = new MultiValueDictionary(messageService);
 
             while (isRunning)
             {
