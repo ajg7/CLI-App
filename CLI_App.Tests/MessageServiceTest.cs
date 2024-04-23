@@ -100,6 +100,10 @@ namespace Spreetail_Take_Home.Tests
         [InlineData("Batman", "Joker", "Batman: Joker")]
         [InlineData("Batman", "Penguin", "Batman: Penguin")]
         [InlineData("Batman", "Riddler", "Batman: Riddler")]
+        [InlineData("Flash", "GorillaGrodd", "Flash: GorillaGrodd")]
+        [InlineData("Flash", "Reverse-Flash", "Flash: Reverse-Flash")]
+        [InlineData("SpiderMan", "GreenGoblin", "SpiderMan: GreenGoblin")]
+        [InlineData("SpiderMan", "Venom", "SpiderMan: Venom")]
         public void CreateItemsMessage_ReturnsCorrectlyFormattedMessage(string key, string member, string expected)
         {
             string actual = _messageService.CreateItemsMessage(key, member);
