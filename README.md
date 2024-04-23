@@ -4,19 +4,20 @@
 
 ## List of Commands
 
-| Command       | Parameters          | Example                    |
-|---------------|---------------------|----------------------------|
-| ADD           | `<key> <member>`    | `ADD Batman Joker`         |
-| KEYS          | *No parameters*     | `KEYS`                     |
-| MEMBERS       | `<key>`             | `MEMBERS Batman`           |
-| REMOVE        | `<key> <member>`    | `REMOVE Batman Joker`      |
-| REMOVEALL     | `<key>`             | `REMOVEALL Batman`         |
-| CLEAR         | *No parameters*     | `CLEAR`                    |
-| KEYEXISTS     | `<key>`             | `KEYEXISTS Batman`         |
-| MEMBEREXISTS  | `<key> <member>`    | `MEMBEREXISTS Batman Joker`|
-| ALLMEMBERS    | *No parameters*     | `ALLMEMBERS`               |
-| ITEMS         | *No parameters*     | `ITEMS`                    |
-| EXIT          | *No parameters*     | `EXIT`                     |
+| Command       | Parameters          | Example                    | Description                                            |
+|---------------|---------------------|----------------------------|--------------------------------------------------------|
+| ADD           | `<key> <member>`    | `ADD Batman Joker`         | Adds a key and member pair to dictionary               |
+| KEYS          | *No parameters*     | `KEYS`                     | Returns list of keys                                   |
+| MEMBERS       | `<key>`             | `MEMBERS Batman`           | Returns members of a specific key                      |
+| REMOVE        | `<key> <member>`    | `REMOVE Batman Joker`      | Removes a specific member from a key                   |
+| REMOVEALL     | `<key>`             | `REMOVEALL Batman`         | Removes all members in a key, including the key itself |
+| CLEAR         | *No parameters*     | `CLEAR`                    | Removes all key and member pairs in dictionary         |
+| KEYEXISTS     | `<key>`             | `KEYEXISTS Batman`         | Returns true if key exists in dictionary               |
+| MEMBEREXISTS  | `<key> <member>`    | `MEMBEREXISTS Batman Joker`| Returns true if member exists in a key                 |
+| ALLMEMBERS    | *No parameters*     | `ALLMEMBERS`               | Returns all members in the dictionary                  |
+| ITEMS         | *No parameters*     | `ITEMS`                    | Returns all key and member pairs in dictionary         |
+| EXIT          | *No parameters*     | `EXIT`                     | Closes application                                     |
+
 
 ## Constraints
 
